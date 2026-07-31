@@ -1,0 +1,383 @@
+{
+  "environment": {
+    "python": "3.14.4",
+    "platform": "Windows-10-10.0.19045-SP0",
+    "numpy": "2.4.6",
+    "pandas": "3.0.3",
+    "torch": "2.12.0+cpu",
+    "torchvision": "0.27.0+cpu",
+    "opencv": "5.0.0",
+    "sklearn": "1.8.0"
+  },
+  "preprocessing": {
+    "resize_size": [
+      224,
+      224
+    ],
+    "interpolation": "bilinear (cv2.INTER_LINEAR)",
+    "intensity_scale": "divide by 255.0 -> [0,1] float32",
+    "normalize_mean": [
+      0.485,
+      0.456,
+      0.406
+    ],
+    "normalize_std": [
+      0.229,
+      0.224,
+      0.225
+    ]
+  },
+  "classifier_hyperparameters": {
+    "random_forest": {
+      "n_estimators": 200,
+      "max_depth": 12,
+      "min_samples_split": 5,
+      "min_samples_leaf": 2,
+      "max_features": "sqrt",
+      "class_weight": "balanced",
+      "bootstrap": true,
+      "n_jobs": -1
+    },
+    "logistic_regression": {
+      "C": 1.0,
+      "penalty": "l2",
+      "solver": "lbfgs",
+      "max_iter": 2000,
+      "class_weight": "balanced"
+    },
+    "svm_rbf": {
+      "kernel": "rbf",
+      "C": 1.0,
+      "gamma": "scale",
+      "probability": true,
+      "class_weight": "balanced"
+    }
+  },
+  "random_seeds": [
+    42,
+    123,
+    456,
+    789,
+    2024
+  ],
+  "test_size": 0.2,
+  "max_images_per_patient": 5,
+  "cancer_detection_summary": {
+    "resnet18": {
+      "auc_per_seed": {
+        "42": 0.695473237020193,
+        "123": 0.6734055459561712,
+        "456": 0.6934269571799307,
+        "789": 0.6420798103717261,
+        "2024": 0.6712834718374885
+      },
+      "auc_mean": 0.6751338044731019,
+      "auc_std": 0.019280614187587634
+    },
+    "resnet50": {
+      "auc_per_seed": {
+        "42": 0.7186789395569233,
+        "123": 0.6755378347576443,
+        "456": 0.6774505298442907,
+        "789": 0.6624470562815954,
+        "2024": 0.6718867343798092
+      },
+      "auc_mean": 0.6812002189640525,
+      "auc_std": 0.019438103643977
+    },
+    "mobilenet_v2": {
+      "auc_per_seed": {
+        "42": 0.6976756852439373,
+        "123": 0.6935319458973492,
+        "456": 0.682955098399654,
+        "789": 0.6527305136930805,
+        "2024": 0.6694336718990458
+      },
+      "auc_mean": 0.6792653830266133,
+      "auc_std": 0.016473311006931852
+    },
+    "densenet121": {
+      "auc_per_seed": {
+        "42": 0.7114520499448538,
+        "123": 0.6946114588799134,
+        "456": 0.6991444096020761,
+        "789": 0.6630158140066917,
+        "2024": 0.6897568482610034
+      },
+      "auc_mean": 0.6915961161389077,
+      "auc_std": 0.016003397824545875
+    }
+  },
+  "classifier_variety_summary": {
+    "resnet18": {
+      "random_forest": {
+        "auc_per_seed": {
+          "42": 0.695473237020193,
+          "123": 0.6734055459561712,
+          "456": 0.6934269571799307,
+          "789": 0.6420798103717261,
+          "2024": 0.6712834718374885
+        },
+        "auc_mean": 0.6751338044731019,
+        "auc_std": 0.019280614187587634
+      },
+      "logistic_regression": {
+        "auc_per_seed": {
+          "42": 0.6661605914952138,
+          "123": 0.6480052404840764,
+          "456": 0.6783696474913494,
+          "789": 0.6505063214720339,
+          "2024": 0.6505263157894736
+        },
+        "auc_mean": 0.6587136233464295,
+        "auc_std": 0.011754810865437735
+      },
+      "svm_rbf": {
+        "auc_per_seed": {
+          "42": 0.6847622581391866,
+          "123": 0.6543987647430392,
+          "456": 0.6904567203719723,
+          "789": 0.6518694335617896,
+          "2024": 0.6633210218528778
+        },
+        "auc_mean": 0.668961639733773,
+        "auc_std": 0.01579705949558832
+      }
+    },
+    "resnet50": {
+      "random_forest": {
+        "auc_per_seed": {
+          "42": 0.7186789395569233,
+          "123": 0.6755378347576443,
+          "456": 0.6774505298442907,
+          "789": 0.6624470562815954,
+          "2024": 0.6718867343798092
+        },
+        "auc_mean": 0.6812002189640525,
+        "auc_std": 0.019438103643977
+      },
+      "logistic_regression": {
+        "auc_per_seed": {
+          "42": 0.6559959695537916,
+          "123": 0.6159373548255568,
+          "456": 0.5943852724913494,
+          "789": 0.6278354479046521,
+          "2024": 0.614376731301939
+        },
+        "auc_mean": 0.6217061552154578,
+        "auc_std": 0.02023259618484132
+      },
+      "svm_rbf": {
+        "auc_per_seed": {
+          "42": 0.7151948502879864,
+          "123": 0.6768111921767058,
+          "456": 0.67937493241782,
+          "789": 0.6702984548218899,
+          "2024": 0.6795875654047399
+        },
+        "auc_mean": 0.6842533990218284,
+        "auc_std": 0.015830791240830595
+      }
+    },
+    "mobilenet_v2": {
+      "random_forest": {
+        "auc_per_seed": {
+          "42": 0.6976756852439373,
+          "123": 0.6935319458973492,
+          "456": 0.682955098399654,
+          "789": 0.6527305136930805,
+          "2024": 0.6694336718990458
+        },
+        "auc_mean": 0.6792653830266133,
+        "auc_std": 0.016473311006931852
+      },
+      "logistic_regression": {
+        "auc_per_seed": {
+          "42": 0.6509715281654661,
+          "123": 0.6430755759352159,
+          "456": 0.6208572123702423,
+          "789": 0.5905230346878664,
+          "2024": 0.6121329639889196
+        },
+        "auc_mean": 0.6235120630295421,
+        "auc_std": 0.02173274663124225
+      },
+      "svm_rbf": {
+        "auc_per_seed": {
+          "42": 0.6955906782315056,
+          "123": 0.6833751658539683,
+          "456": 0.6819548821366782,
+          "789": 0.6558713908509441,
+          "2024": 0.677796244998461
+        },
+        "auc_mean": 0.6789176724143113,
+        "auc_std": 0.01295740488670039
+      }
+    },
+    "densenet121": {
+      "random_forest": {
+        "auc_per_seed": {
+          "42": 0.7114520499448538,
+          "123": 0.6946114588799134,
+          "456": 0.6991444096020761,
+          "789": 0.6630158140066917,
+          "2024": 0.6897568482610034
+        },
+        "auc_mean": 0.6915961161389077,
+        "auc_std": 0.016003397824545875
+      },
+      "logistic_regression": {
+        "auc_per_seed": {
+          "42": 0.6626271428765947,
+          "123": 0.6288514048708428,
+          "456": 0.6553579152249135,
+          "789": 0.6468935978215626,
+          "2024": 0.6397722376115728
+        },
+        "auc_mean": 0.6467004596810974,
+        "auc_std": 0.011791836965530973
+      },
+      "svm_rbf": {
+        "auc_per_seed": {
+          "42": 0.7147029588377064,
+          "123": 0.6815804337436374,
+          "456": 0.6989112510813149,
+          "789": 0.680882432376613,
+          "2024": 0.7076315789473684
+        },
+        "auc_mean": 0.6967417309973281,
+        "auc_std": 0.013618249509093199
+      }
+    }
+  },
+  "radiogenomics_summary": [
+    {
+      "model": "resnet18",
+      "marker": "BRCA1_mutation",
+      "n_seeds_valid": 5,
+      "auc_mean": 0.5411191527154281,
+      "auc_std": 0.04271719245102131,
+      "note": "SYNTHETIC target; see STEP 2 design-correlation report"
+    },
+    {
+      "model": "resnet18",
+      "marker": "BRCA2_mutation",
+      "n_seeds_valid": 5,
+      "auc_mean": 0.5546541571587889,
+      "auc_std": 0.05271517288637973,
+      "note": "SYNTHETIC target; see STEP 2 design-correlation report"
+    },
+    {
+      "model": "resnet18",
+      "marker": "HER2_amplification",
+      "n_seeds_valid": 5,
+      "auc_mean": 0.5283247566001007,
+      "auc_std": 0.04274400071018587,
+      "note": "SYNTHETIC target; see STEP 2 design-correlation report"
+    },
+    {
+      "model": "resnet18",
+      "marker": "TP53_mutation",
+      "n_seeds_valid": 5,
+      "auc_mean": 0.5594576404156643,
+      "auc_std": 0.02384730239062905,
+      "note": "SYNTHETIC target; see STEP 2 design-correlation report"
+    },
+    {
+      "model": "resnet50",
+      "marker": "BRCA1_mutation",
+      "n_seeds_valid": 5,
+      "auc_mean": 0.573026307480592,
+      "auc_std": 0.03323735150817313,
+      "note": "SYNTHETIC target; see STEP 2 design-correlation report"
+    },
+    {
+      "model": "resnet50",
+      "marker": "BRCA2_mutation",
+      "n_seeds_valid": 5,
+      "auc_mean": 0.5525798932073798,
+      "auc_std": 0.020564183101412458,
+      "note": "SYNTHETIC target; see STEP 2 design-correlation report"
+    },
+    {
+      "model": "resnet50",
+      "marker": "HER2_amplification",
+      "n_seeds_valid": 5,
+      "auc_mean": 0.5468198407553805,
+      "auc_std": 0.04978159106172048,
+      "note": "SYNTHETIC target; see STEP 2 design-correlation report"
+    },
+    {
+      "model": "resnet50",
+      "marker": "TP53_mutation",
+      "n_seeds_valid": 5,
+      "auc_mean": 0.5775706969163794,
+      "auc_std": 0.016868340267804892,
+      "note": "SYNTHETIC target; see STEP 2 design-correlation report"
+    },
+    {
+      "model": "mobilenet_v2",
+      "marker": "BRCA1_mutation",
+      "n_seeds_valid": 5,
+      "auc_mean": 0.555496102140318,
+      "auc_std": 0.028874987959848483,
+      "note": "SYNTHETIC target; see STEP 2 design-correlation report"
+    },
+    {
+      "model": "mobilenet_v2",
+      "marker": "BRCA2_mutation",
+      "n_seeds_valid": 5,
+      "auc_mean": 0.5502836412920321,
+      "auc_std": 0.028896166049048065,
+      "note": "SYNTHETIC target; see STEP 2 design-correlation report"
+    },
+    {
+      "model": "mobilenet_v2",
+      "marker": "HER2_amplification",
+      "n_seeds_valid": 5,
+      "auc_mean": 0.5570915477860136,
+      "auc_std": 0.041355641952740815,
+      "note": "SYNTHETIC target; see STEP 2 design-correlation report"
+    },
+    {
+      "model": "mobilenet_v2",
+      "marker": "TP53_mutation",
+      "n_seeds_valid": 5,
+      "auc_mean": 0.5858596567514077,
+      "auc_std": 0.023702425245694336,
+      "note": "SYNTHETIC target; see STEP 2 design-correlation report"
+    },
+    {
+      "model": "densenet121",
+      "marker": "BRCA1_mutation",
+      "n_seeds_valid": 5,
+      "auc_mean": 0.5668413436320645,
+      "auc_std": 0.03916632110618273,
+      "note": "SYNTHETIC target; see STEP 2 design-correlation report"
+    },
+    {
+      "model": "densenet121",
+      "marker": "BRCA2_mutation",
+      "n_seeds_valid": 5,
+      "auc_mean": 0.5711989919070701,
+      "auc_std": 0.04474096524016483,
+      "note": "SYNTHETIC target; see STEP 2 design-correlation report"
+    },
+    {
+      "model": "densenet121",
+      "marker": "HER2_amplification",
+      "n_seeds_valid": 5,
+      "auc_mean": 0.5391763961792017,
+      "auc_std": 0.02853577804621445,
+      "note": "SYNTHETIC target; see STEP 2 design-correlation report"
+    },
+    {
+      "model": "densenet121",
+      "marker": "TP53_mutation",
+      "n_seeds_valid": 5,
+      "auc_mean": 0.578339984125763,
+      "auc_std": 0.022144941713783745,
+      "note": "SYNTHETIC target; see STEP 2 design-correlation report"
+    }
+  ]
+}
